@@ -2,7 +2,7 @@ package CONTROLLER
 
 import MODEL.Model
 import View.InputBebida
-import View.InputLanche
+
 
 open class Bebida() : Model(){
     fun mostrarBebida( input : InputBebida){
@@ -17,15 +17,26 @@ open class Bebida() : Model(){
                 println("Digite a quantidade de refrigerante que deseja comprar")
                 var quantidadeRefri = readln().toInt()
 
-                val quantidadeAdicionada = bebida("Refrigerante", quantidadeRefri, 8.00, gerarCodigoUnico())
-                listaBebida.add(quantidadeAdicionada)
+                if (quantidadeRefri != null && quantidadeRefri != 0) {
+                    val quantidadeAdicionada = bebida("Refrigerante", quantidadeRefri, 8.00, gerarCodigoUnico())
+                    listaBebida.add(quantidadeAdicionada)
+                }else{
+                    println("Opção inválida, Digite novamente")
+                    continue
+                }
                 return
+
             } else if (tipo.equals(2)) {
                 println("Digite a quantidade de suco que deseja comprar")
                 var quantidadeSuco = readln().toInt()
 
+                if (quantidadeSuco != null && quantidadeSuco != 0) {
                 val quantidadeAdicionada = bebida("Suco", quantidadeSuco, 6.00,gerarCodigoUnico())
                 listaBebida.add(quantidadeAdicionada)
+                }else{
+                    println("Opção inválida, Digite novamente")
+                    continue
+                }
                 return
             } else {
                 println("Numero inválido digite novamente")
@@ -36,17 +47,7 @@ open class Bebida() : Model(){
     fun gerarCodigoUnico(): Int {
         return (Math.random() * 10000).toInt()
     }
-
-    fun editarQuantidade(input: InputBebida){
-        input.listaBebida.forEach(){
-            println("Digite o código do produto")
-            val codigo = readln().toInt()
-            if (codigo != null && codigo.equals(it.code)){
-
-            }
-        }
-
-    }fun removerQuantidade(input: InputBebida, codigo : Int, quantidadeRemove : Int ){
+    fun removerQuantidade(input: InputBebida, codigo : Int, quantidadeRemove : Int ){
         val produto = listaBebida.find { it.code == codigo }
 
         if (produto != null) {
