@@ -13,26 +13,36 @@ fun main() {
     println("SEJA BEM VINDO AO ATENDIMENTO LANCHONETE")
 
     while (true) {
-        println("Selecione uma opção:" +
-                "\n1- Lanche" +
-                "\n2- Bebidas" +
-                "\n3- Editar Pedido" +
-                "\n4- Ver pedido" +
-                "\n5- Finalizar")
+        println(
+            "Selecione uma opção:" +
+                    "\n1- Pedir Lanche" +
+                    "\n2- Pedir Bebidas" +
+                    "\n3- Ver pedido" +
+                    "\n4- Editar Pedido (BEBIDAS)" +
+                    "\n5- Editar pedido (LANCHES)" +
+                    "\n6- Finalizar"
+        )
 
         val opcao = readln().toInt()
 
         when (opcao) {
             1 -> lanche.escolherLanche()
-            2 ->bebida.entradaDoUsuario()
+            2 -> bebida.entradaDoUsuario()
             3 -> {
-                lancheController.mostrarLancheSelecionado(lanche)
                 bebidaController.mostrarBebida(bebida)
-                final.calcularTotal(bebida,lanche)
+                lancheController.mostrarLancheSelecionado(lanche)
+            }
+
+            4-> bebida.editarPedido(bebida)
+            5-> lanche.editarPedido(lanche)
+            6 -> {
+                final.calcularTotal(bebida, lanche)
                 final.finalizarPedidos()
                 break
             }
+
             else -> println("Opção inválida, tente novamente")
         }
     }
 }
+

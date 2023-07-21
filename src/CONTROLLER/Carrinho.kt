@@ -17,7 +17,7 @@ open class Carrinho : Model() {
             println("Preço total de Bebidas $valorBebida")
         }
         for(i in inputLanche.listaLanche){
-            valorLanche = i.preco * i.quantidade
+            valorLanche = i.preco * i.quantidade!!
             println("Preço total de lanches $valorLanche")
         }
         valorTotal = valorBebida + valorLanche

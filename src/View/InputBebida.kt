@@ -6,6 +6,7 @@ import MODEL.Model
 open class InputBebida() : Bebida() {
     // adicionar código OK
     // fzer o laço OK
+
     fun entradaDoUsuario(){
         var resposta = 0
         while (resposta != 2) {
@@ -39,6 +40,27 @@ open class InputBebida() : Bebida() {
             }
         }
     }
-    fun
+    fun editarPedido(inputBebida: InputBebida){
+        println("Você deseja 1 - adicionar ou 2 - remover")
+        val opção = readln().toInt()
+        if (opção < 2) {
+            when (opção) {
+                1 -> {
+                    println("Digite o código do produto")
+                    val codigo = readln().toInt()
+                    println("Digite a quantidade para adicionar")
+                    val quantidade = readln().toInt()
+                    adicionaPedido(inputBebida, codigo, quantidade)
+                }
 
+                2 -> {
+                    println("Digite o código do produto")
+                    val codigo = readln().toInt()
+                    println("Digite a quantidade para remover")
+                    val quantidade = readln().toInt()
+                    removerQuantidade(inputBebida, codigo, quantidade)
+                }
+            }
+        }else{ println("Opção inválida") }
+    }
 }
