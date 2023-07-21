@@ -47,8 +47,7 @@ open class Lanche() : Model(){
         }
     }
     fun gerarCodigoUnico(): Int {
-        return (Math.random() * 10000).toInt()
-    }
+        return (Math.random() * 10000).toInt() }
     fun removerQuantidade(input: InputLanche, codigo : Int, quantidadeRemove : Int ){
         val produto = listaLanche.find { it.code == codigo }
 
