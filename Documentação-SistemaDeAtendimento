@@ -1,0 +1,32 @@
+                                              SISTEMA DE AUTO ATENDIMENTO - LANCHONETE
+
+O sistema de auto atendimento da lanchonete foi criado com o objetivo de oferecer aos clientes um atendimento rápido e versátil.
+O sistema segue a arquitetura MVC (Model-View-Controller) e está dividido em três pacotes: MODEL, CONTROLLER e VIEW, além de uma file que determina o menu principal da lanchonete.
+
+No pacote CONTROLLER, temos três classes principais: Bebida, Lanche e Carrinho. 
+Cada uma dessas classes possui métodos específicos para gerenciar os dados relacionados a bebidas, lanches e carrinhos de compras.
+Alguns dos principais métodos presentes são:
+
+-> Na classe Bebida(CONTROLLER):
+
+  1 -Método "mostrarBebida": exibe a lista de bebidas disponíveis para o usuário.
+  2- Método "preencherDados": permite ao usuário determinar a quantidade de produtos desejada.
+  3- Método "gerarCodigoUnico": gera um código único para cada produto selecionado pelo usuário.
+  4- Métodos "removerQuantidade" e "adicionarPedido": possibilitam ao usuário modificar a quantidade de produtos em seu carrinho.
+ 
+-> Na classe Carrinho(CONTROLLER):
+
+  1- Método "calcularTotal": exibe o valor total a ser pago pelos produtos no carrinho.
+  2- Método "finalizarPedidos": apresenta as opções de formas de pagamento disponíveis.
+  3- Método "limparCarrinho": limpa os dados do carrinho após a finalização do pedido, permitindo que o usuário faça novos pedidos.
+
+-> As classes Bebida e Lanche do pacote CONTROLLER sobrescrevem os métodos principais para gerenciamento dos dados específicos de cada tipo de produto.
+-> Além disso, o pacote MODEL contém uma classe abstrata que manipula os objetos relacionados às funcionalidades do sistema.
+
+-> As classes InputBebida e InputLanche no pacote VIEW são responsáveis pela interação com o usuário. Elas possuem métodos como:
+  1- Método "entradaDoUsuario": permite ao usuário fazer seus pedidos de bebidas e lanches.
+  2- Método "editarPedido": possibilita a alteração dos pedidos já feitos pelo usuário.
+
+-> A file do Menu reúne todos os métodos implementados para executar o código, oferecendo uma experiência completa de auto atendimento ao cliente na lanchonete.
+-> O sistema oferece uma experiência fluida, permitindo ao cliente fazer pedidos, adicionar ou remover produtos, visualizar o valor total a pagar e escolher a forma de pagamento.
+Com a possibilidade de limpar o carrinho e retornar ao menu principal, o usuário pode realizar novos pedidos com facilidade.
