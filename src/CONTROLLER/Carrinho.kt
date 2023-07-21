@@ -1,28 +1,30 @@
 package CONTROLLER
 
 import MODEL.Model
+import View.InputBebida
+import View.InputLanche
+import java.util.*
 
 open class Carrinho : Model() {
     private var valorTotal = 0.0
-    fun adicionarAoCarrinho(nome: String, preco: Double) {
-        println("Digite a quantidade:")
-        val quantidade = readln().toInt()
-        sacola.add(carrinho(nome, preco, quantidade))
-        valorTotal += preco * quantidade
-        println("Item adicionado ao carrinho.")
+
+    fun calcularTotal(inputBebida: InputBebida,inputLanche: InputLanche){
+        var valorBebida = 0.0
+        var valorLanche = 0.0
+
+        for (i in inputBebida.listaBebida){
+            valorBebida= i.preco!! * i.quantidade!!
+            println("Preço total de Bebidas $valorBebida")
+        }
+        for(i in inputLanche.listaLanche){
+            valorLanche = i.preco * i.quantidade
+            println("Preço total de lanches $valorLanche")
+        }
+        valorTotal = valorBebida + valorLanche
+        println("VALOR TOTAL: $valorTotal")
     }
+
     fun finalizarPedidos() {
-        println("Valor total do pedido: R$ $valorTotal")
-        if (sacola.isEmpty()) {
-            println("Carrinho vazio. Pedido não finalizado.")
-            return
-        }
-
-        println("Itens do pedido:")
-        for ((numero, item) in sacola.withIndex()) {
-            println("${numero + 1}. ${item.nome} - R$ ${item.preco} x ${item.quantidade}")
-        }
-
         println("Formas de pagamento:")
         println("1. Cartão de crédito")
         println("2. Cartão de débito")
@@ -50,7 +52,5 @@ open class Carrinho : Model() {
             }
         }
     }
-
-
 
 }

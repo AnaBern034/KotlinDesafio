@@ -1,21 +1,43 @@
 package View
 
-import CONTROLLER.Carrinho
 import CONTROLLER.Lanche
+class InputLanche : Lanche(){
+    // adicionar laço OK
 
-
-class InputLanche : Carrinho(){
     fun escolherLanche() {
-        val lancheMenu = Lanche()
-        lancheMenu.listarLanches()
+            var resposta = 0
+            while (resposta != 2) {
+                println(
+                    "Escolha um tipo de lanche" +
+                            "\n 1 - X-BURGUER" +
+                            "\n 2 - X-SALADA" +
+                            "\n 3 - VOLTAR AO MENU PRINCIPAL"
+                )
+                var input = readln().toIntOrNull()
+                if (input!! <= 3) {
+                    when (input) {
+                        1 -> preencherDados(1)
+                        2 -> preencherDados(2)
+                        3 -> return
+                    }
+                    println(
+                        "Deseja comprar novamente?" +
+                                "\n1-SIM" +
+                                "\n2-NÃO"
+                    )
+                    resposta = readln().toInt()
+                    if (resposta > 2){
+                        println("Numero inválido, digite novamente")
+                        continue
+                    }
 
-        val opcao = readln().toInt()
-        val lanche = lancheMenu.pegarLanche(opcao)
-
-        if (lanche != null) {
-            adicionarAoCarrinho(lanche.nome, lanche.preco)
-        } else {
-            println("Opção inválida, tente novamente")
+                } else {
+                    println("Numero inválido, digite novamente")
+                    continue
+                }
+            }
         }
     }
-}
+
+
+

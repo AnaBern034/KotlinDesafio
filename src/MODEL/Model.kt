@@ -1,21 +1,14 @@
 package MODEL
 
 import CONTROLLER.Carrinho
+import java.util.UUID
 
 open abstract class Model {
 
-      var listaBebida = mutableListOf<bebida>()
+    var listaBebida = mutableListOf<bebida>()
+    var listaLanche = mutableListOf<lanche>()
 
-     val sacola = mutableListOf<carrinho>()
+    data class bebida(var nome: String?, var quantidade: Int?, var preco: Double?,val code : Int )
+    data class lanche(val nome: String, val preco: Double, val quantidade: Int, val code : Int)
 
-    data class bebida(var nome : String?, var quantidade : Int?, var preco : Double?)
-    data class lanche(val nome: String, val preco: Double, val ingredientes: List<String>)
-    data class carrinho(val nome: String, val preco: Double, var quantidade: Int)
-
-
-//    data class ItemPedido(val nome: String, val preco: Double, var quantidade: Int)
-//    data class Bebida(val nome: String, val preco: Double)
-
-
-    data class Pessoa (var nome : String? )
 }
