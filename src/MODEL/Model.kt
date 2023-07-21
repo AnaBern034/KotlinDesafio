@@ -9,6 +9,6 @@ open abstract class Model {
     var listaLanche = mutableListOf<lanche>()
 
     data class bebida(var nome: String?, var quantidade: Int?, var preco: Double?,val code : Int )
-    data class lanche(val nome: String, val preco: Double, val quantidade: Int, val code : Int)
+    data class lanche(val nome: String, val preco: Double, var quantidade: Int?, val code : Int)
 
 }

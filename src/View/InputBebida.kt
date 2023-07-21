@@ -6,6 +6,7 @@ import MODEL.Model
 open class InputBebida() : Bebida() {
     // adicionar código OK
     // fzer o laço OK
+
     fun entradaDoUsuario(){
         var resposta = 0
         while (resposta != 2) {
@@ -16,7 +17,8 @@ open class InputBebida() : Bebida() {
                         "\n 3 - VOLTAR AO MENU PRINCIPAL"
             )
             var input = readln().toIntOrNull()
-            if (input!! <= 3) {
+
+            if (input != null && input <= 3 && input != 0) {
                 when (input) {
                     1 -> preencherDados(1)
                     2 -> preencherDados(2)
@@ -27,8 +29,8 @@ open class InputBebida() : Bebida() {
                             "\n1-SIM" +
                             "\n2-NÃO"
                 )
-                 resposta = readln().toInt()
-                if (resposta > 2){
+                 resposta = readln().toIntOrNull() ?: 0
+                if (resposta != 1 && resposta != 2){
                     println("Numero inválido, digite novamente")
                     continue
                 }
@@ -39,6 +41,30 @@ open class InputBebida() : Bebida() {
             }
         }
     }
-    fun
+    fun editarPedido(inputBebida: InputBebida){
+        println("Você deseja 1 - adicionar, 2 - remover OU 3 - ainda não viu o código??")
+        val opção = readln().toInt()
+            when (opção) {
+                1 -> {
+                    println("Digite o código do produto")
+                    val codigo = readln().toInt()
+                    println("Digite a quantidade para adicionar")
+                    val quantidade = readln().toInt()
+                    adicionaPedido(inputBebida, codigo, quantidade)
+                }
 
-}
+                2 -> {
+                    println("Digite o código do produto")
+                    val codigo = readln().toInt()
+                    println("Digite a quantidade para remover")
+                    val quantidade = readln().toInt()
+                    removerQuantidade(inputBebida, codigo, quantidade)
+                }
+                3 -> {
+                    println("PARA VER O CÓDIGO DO PRODUTO, DIGITE A OPÇÃO {VER PEDIDO}")
+                    return
+                }else -> println("Opção inválida")
+            }
+        }
+    }
+
