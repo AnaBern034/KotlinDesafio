@@ -50,7 +50,6 @@ fun main() {
     entrada.entradaDoUsuario()
     var bebiba = Bebida()
     bebiba.mostrarBebida(entrada)
-    bebiba.CalcularQuantidade(entrada)
     bebiba.CalcularPreco(entrada)
 
 

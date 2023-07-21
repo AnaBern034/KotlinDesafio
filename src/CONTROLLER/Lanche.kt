@@ -5,38 +5,19 @@ import View.InputBebida
 import View.InputLanche
 
 class Lanche() : Model(){
-    fun CalcularQuantidade(input: InputBebida){
-        var calcular = 0
 
-        for (i in input.listaLanche){
-            if ( i.quantidade != null) {
-                calcular += i.quantidade!!
-                println("A quantidade ao total é $calcular")
-            } else{
-                println("Esse numero precisa ser válido, digite novamente")
-            }
+    private val lanches = listOf(
+        lanche("X-burger", 10.0, listOf("Hambúrgueres", "Queijo mussarela", "Pão de hambúrguer", "Tomate", "Alface")),
+        lanche("X-salada", 12.0, listOf("Hambúrgueres", "Queijo mussarela", "Pão de hambúrguer", "Tomate", "Alface", "Ovo"))
+    )
+    fun listarLanches() {
+        println("Escolha um lanche:")
+        for ((index, lanche) in lanches.withIndex()) {
+            println("${index + 1}. ${lanche.nome} - R$ ${lanche.preco}")
         }
     }
-    fun CalcularPreco(input: InputBebida){
-        var calcular = 0.0
-        for (i in input.listaLanche){
-            calcular= i.preco!! * i.quantidade!!
-            println("Preço total $calcular")
-        }
+    fun pegarLanche(index: Int): lanche? {
+        return if (index in 1..lanches.size) lanches[index - 1] else null
     }
-    fun mostrarLacheADD( input : InputLanche) {
-        if (listaLanche.isEmpty()) {
-            println("Nenhum lanche adicionado ")
-            return
-        }
-        listaLanche.forEachIndexed { index, lanche ->
-            println("Lanche ${index + 1}: ${lanche.nome}, Quantidade: ${lanche.quantidade}, Preço: ${lanche.preco}")
-            if (lanche.ingredinetes.isNotEmpty()) {
-                println("Ingredientes adicionados:")
-                lanche.ingredinetes.forEachIndexed { i, ingrediente ->
-                    println("${i + 1}. $ingrediente")
-                }
-            }
-        }
-    }
+
 }

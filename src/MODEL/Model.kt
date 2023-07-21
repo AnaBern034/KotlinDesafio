@@ -1,16 +1,21 @@
 package MODEL
 
- open abstract class Model {
-    companion object {
-       val one = "Ovo"
-       val two = "Batata palha"
-       val three = "Carne de porco"
-       var ingredientesXBurguer: List<String> = listOf("Hambúrgueres", "Queijo mussarela", "Pão de hambúrguer", "Tomate", "Alface")
-    }
+import CONTROLLER.Carrinho
+
+open abstract class Model {
+
       var listaBebida = mutableListOf<bebida>()
-      var listaLanche= mutableListOf<lanche>()
-      var ingredientesAdd= mutableListOf<String>()
+
+     val sacola = mutableListOf<carrinho>()
+
     data class bebida(var nome : String?, var quantidade : Int?, var preco : Double?)
-    data class lanche(var nome : String?, var quantidade : Int?, var preco : Double?, var ingredinetes: List<String>)
+    data class lanche(val nome: String, val preco: Double, val ingredientes: List<String>)
+    data class carrinho(val nome: String, val preco: Double, var quantidade: Int)
+
+
+//    data class ItemPedido(val nome: String, val preco: Double, var quantidade: Int)
+//    data class Bebida(val nome: String, val preco: Double)
+
+
     data class Pessoa (var nome : String? )
 }
