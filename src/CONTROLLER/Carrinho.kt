@@ -6,7 +6,7 @@ import View.InputLanche
 import java.util.*
 
 open class Carrinho : Model() {
-    private var valorTotal = 0.0
+    var valorTotal = 0.0
 
     fun calcularTotal(inputBebida: InputBebida,inputLanche: InputLanche){
         var valorBebida = 0.0
@@ -39,6 +39,7 @@ open class Carrinho : Model() {
 
             when (formaPagamento) {
                 1, 2, 3 -> {
+                    limparCarinho(inputBebida,inputLanche)
                     println("Compra finalizada com sucesso! Boa refeição!")
                 }
 
@@ -49,6 +50,7 @@ open class Carrinho : Model() {
                     if (valorPago >= valorTotal) {
                         val troco = valorPago - valorTotal
                         println("Compra finalizada com sucesso! Troco: R$ $troco")
+                        limparCarinho(inputBebida,inputLanche)
                     } else {
                         println("Valor insuficiente. Pedido não finalizado.")
                     }
@@ -67,9 +69,9 @@ open class Carrinho : Model() {
         }
     }
     fun limparCarinho(inputBebida: InputBebida,inputLanche: InputLanche){
-        println("LIMPANDO...")
+        println("LIMPANDO DADOS....")
         println()
-       inputBebida.listaBebida.clear()
+        inputBebida.listaBebida.clear()
         inputLanche.listaLanche.clear()
         valorTotal = 0.0
     }
