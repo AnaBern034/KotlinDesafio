@@ -23,8 +23,7 @@ fun main() {
                     "\n4- Editar Pedido (BEBIDAS)" +
                     "\n5- Editar pedido (LANCHES)" +
                     "\n6- Finalizar" +
-                    "\n7- Limpar dados" +
-                    "\n8 - Sair"
+                    "\n7 - Sair"
         )
         try {
         val opcao = readln().toInt()
@@ -43,14 +42,12 @@ fun main() {
                 final.calcularTotal(bebida, lanche)
                 final.finalizarPedidos(bebida,lanche)
             }
-            7-> final.limparCarinho(bebida,lanche)
-            8-> exitProcess(0)
+            7-> exitProcess(0)
 
             else -> println("Opção inválida, tente novamente")
         }
     } catch (e : NumberFormatException){
             println("Opção inválida, Digite um número válido")
-
         }
     }
 }

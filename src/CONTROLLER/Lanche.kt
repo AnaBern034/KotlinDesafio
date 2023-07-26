@@ -1,9 +1,7 @@
 package CONTROLLER
 
 import MODEL.Model
-import View.InputBebida
 import View.InputLanche
-import java.util.*
 
 
 open class Lanche() : Model(){
@@ -69,7 +67,7 @@ open class Lanche() : Model(){
 
         if (produto != null) {
                 produto.quantidade = produto.quantidade!! + quantidadeAdicionada
-                println("Quantidade adiciona, digite em {ver pedidos} para ter a certeza que foi removida")
+                println("Quantidade adiciona, digite em {ver pedidos} para ter a certeza que foi adicionada")
             } else {
                 println("Produto não encontrado")
 
