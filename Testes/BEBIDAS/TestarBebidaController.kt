@@ -8,6 +8,7 @@ import org.testng.annotations.Test
 class TestarBebidaController {
     val entradaUsuario = InputBebida()
     val codigo = 110
+
     @Test
     fun removerQuantidade(){
         val bebida1 = Model.bebida("Refrigerante",5,10.0,codigo)
