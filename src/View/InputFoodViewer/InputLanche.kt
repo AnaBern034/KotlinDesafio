@@ -18,8 +18,8 @@ class InputLanche : ListOfClasses(){
                 var input = readln().toIntOrNull()
                 if ( input !=null && input <= 3 && input != 0) {
                     when (input) {
-                        1 -> dados.preencherDadosLanche(1)
-                        2 -> dados.preencherDadosLanche(2)
+                        1 -> InserirDadosParaEscolherOProduto().preencherDadosLanche(1)
+                        2 -> InserirDadosParaEscolherOProduto().preencherDadosLanche(2)
                         3 -> return
                     }
                     println(
