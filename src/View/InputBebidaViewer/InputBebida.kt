@@ -6,7 +6,7 @@ import MODEL.ListOfClasses
 
 open class InputBebida() : ListOfClasses() {
   val dados = InserirDadosParaEscolherOProduto()
-    fun entradaDoUsuario(){
+    fun escolherBebida(){
         var resposta = 0
         while (resposta != 2) {
             println(
