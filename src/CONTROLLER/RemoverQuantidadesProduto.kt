@@ -5,7 +5,7 @@ import View.InputBebidaViewer.InputBebida
 import View.InputFoodViewer.InputLanche
 
 class RemoverQuantidadesProduto : ListOfClasses() {
-    fun removerQuantidade(input: InputBebida, codigo : Int, quantidadeRemove : Int ){
+    fun removeAmoutDrink(input: InputBebida, codigo : Int, quantidadeRemove : Int ){
         val produto = listaBebida.find { it.code == codigo }
 
         if (produto != null) {
@@ -21,7 +21,7 @@ class RemoverQuantidadesProduto : ListOfClasses() {
         }
 
     }
-    fun removerQuantidade(input: InputLanche, codigo : Int, quantidadeRemove : Int ){
+    fun removeAmoutFood(input: InputLanche, codigo : Int, quantidadeRemove : Int ){
         val produto = listaLanche.find { it.code == codigo }
 
         if (produto != null) {

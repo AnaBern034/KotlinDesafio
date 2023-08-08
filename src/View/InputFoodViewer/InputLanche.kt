@@ -1,10 +1,11 @@
 package View.InputFoodViewer
 
+import CONTROLLER.InserirDadosParaEscolherOProduto
 import MODEL.ListOfClasses
 
 class InputLanche : ListOfClasses(){
     // adicionar laço OK
-
+    val dados = InserirDadosParaEscolherOProduto()
     fun escolherLanche() {
             var resposta = 0
             while (resposta != 2) {
@@ -17,8 +18,8 @@ class InputLanche : ListOfClasses(){
                 var input = readln().toIntOrNull()
                 if ( input !=null && input <= 3 && input != 0) {
                     when (input) {
-                        1 -> preencherDados(1)
-                        2 -> preencherDados(2)
+                        1 -> dados.preencherDadosLanche(1)
+                        2 -> dados.preencherDadosLanche(2)
                         3 -> return
                     }
                     println(

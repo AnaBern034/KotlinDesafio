@@ -1,9 +1,12 @@
 package View.InputBebidaViewer
 
 import CONTROLLER.AdicionarPedidos
+import CONTROLLER.RemoverQuantidadesProduto
 
-class ChangeRequest {
+class ChangeRequestDrink {
     val adicionar = AdicionarPedidos()
+    val remove = RemoverQuantidadesProduto()
+
     fun editarPedido(inputBebida: InputBebida){
         println("Você deseja 1 - adicionar, 2 - remover OU 3 - ainda não viu o código??")
         val opção = readln().toInt()
@@ -21,7 +24,7 @@ class ChangeRequest {
                 val codigo = readln().toInt()
                 println("Digite a quantidade para remover")
                 val quantidade = readln().toInt()
-                adicionar.addingRequestDrink(inputBebida, codigo, quantidade)
+                remove.removeAmoutDrink(inputBebida, codigo, quantidade)
             }
             3 -> {
                 println("PARA VER O CÓDIGO DO PRODUTO, DIGITE A OPÇÃO {VER PEDIDO}")
@@ -29,5 +32,4 @@ class ChangeRequest {
             }else -> println("Opção inválida")
         }
     }
-}
 }
