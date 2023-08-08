@@ -1,8 +1,8 @@
 package CONTROLLER
 
 import MODEL.ListOfClasses
-import View.InputBebida
-import View.InputLanche
+import View.InputBebidaViewer.InputBebida
+import View.InputFoodViewer.InputLanche
 
 class RemoverQuantidadesProduto : ListOfClasses() {
     fun removerQuantidade(input: InputBebida, codigo : Int, quantidadeRemove : Int ){

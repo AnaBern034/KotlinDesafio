@@ -1,49 +1,15 @@
 package CONTROLLER
 
-import MODEL.CleanCart
 import MODEL.Product
-import View.InputBebida
-import View.InputLanche
+import View.InputBebidaViewer.InputBebida
+import View.InputFoodViewer.InputLanche
 
-open class FinalingRequestProduct : Product() {
-    fun finalizarPedidos(inputBebida: InputBebida, inputLanche: InputLanche) {
-        if (inputLanche.listaLanche.isNotEmpty() || inputBebida.listaBebida.isNotEmpty()) {
-            println("Formas de pagamento:")
-            println("1. Cartão de crédito")
-            println("2. Cartão de débito")
-            println("3. Vale refeição")
-            println("4. Dinheiro")
-            val formaPagamento = readln().toInt()
+open class FinalingRequestProduct : Product {
+  fun finalizarPedidoComOValorTotal(inputBebida: InputBebida, inputLanche: InputLanche){
+      val total = CalculateTotalProducts()
+      val valorTotal = total.calcularTotal(inputBebida,inputLanche)
+      val pedidoFinalizado = RequestFinalizer(valorTotal)
+      pedidoFinalizado.finalizarPedidos(inputBebida,inputLanche)
 
-            when (formaPagamento) {
-                1, 2, 3 -> {
-                    CleanCart.limparCarinho(inputBebida,inputLanche)
-                    println("Compra finalizada com sucesso! Boa refeição!")
-                }
-
-                4 -> {
-                    println("Digite o valor em dinheiro:")
-                    val valorPago = readln().toInt()
-
-                    if (valorPago >= valorTotal) {
-                        val troco = valorPago - valorTotal
-                        println("Compra finalizada com sucesso! Troco: R$ $troco")
-                       CleanCart.limparCarinho(inputBebida,inputLanche)
-                    } else {
-                        println("Valor insuficiente. Pedido não finalizado.")
-                    }
-                }
-
-                else -> {
-                    println("Opção inválida. Pedido não finalizado.")
-                }
-            }
-        }else{
-            println("=================")
-            println("Você não tem nada no carrinho")
-            println("=================")
-            return
-
-        }
-    }
+  }
 }

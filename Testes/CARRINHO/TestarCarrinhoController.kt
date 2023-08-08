@@ -2,8 +2,8 @@ package CARRINHO
 
 import CONTROLLER.FinalingRequestProduct
 import MODEL.Product
-import View.InputBebida
-import View.InputLanche
+import View.InputBebidaViewer.InputBebida
+import View.InputFoodViewer.InputLanche
 import org.testng.AssertJUnit.assertEquals
 import org.testng.annotations.Test
 

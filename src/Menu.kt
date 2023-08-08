@@ -1,8 +1,8 @@
 import CONTROLLER.InserirDadosParaEscolherOProduto
 import CONTROLLER.FinalingRequestProduct
 import CONTROLLER.Lanche
-import View.InputBebida
-import View.InputLanche
+import View.InputBebidaViewer.InputBebida
+import View.InputFoodViewer.InputLanche
 import java.lang.NumberFormatException
 import kotlin.system.exitProcess
 

@@ -1,7 +1,7 @@
 package BEBIDAS
 
 import MODEL.Product
-import View.InputBebida
+import View.InputBebidaViewer.InputBebida
 import org.testng.AssertJUnit.assertEquals
 import org.testng.annotations.Test
 

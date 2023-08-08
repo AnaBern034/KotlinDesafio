@@ -1,7 +1,7 @@
 package LANCHES
 
 import MODEL.Product
-import View.InputLanche
+import View.InputFoodViewer.InputLanche
 import org.testng.AssertJUnit.assertEquals
 import org.testng.annotations.Test
 import java.io.ByteArrayOutputStream

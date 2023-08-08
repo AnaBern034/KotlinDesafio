@@ -1,7 +1,7 @@
 package CONTROLLER
 
 import MODEL.Product
-import MODEL.GerarCódigo
+import MODEL.CreateCode
 import MODEL.ListOfClasses
 
 open class InserirDadosParaEscolherOProduto() : ListOfClasses(){
@@ -13,7 +13,7 @@ open class InserirDadosParaEscolherOProduto() : ListOfClasses(){
                 var quantidadeRefri = readln().toInt()
 
                 if (quantidadeRefri != null && quantidadeRefri != 0) {
-                    val quantidadeAdicionada = Product.Drink("Refrigerante", quantidadeRefri, 8.00,GerarCódigo.gerarCodigoUnico())
+                    val quantidadeAdicionada = Product.Drink("Refrigerante", quantidadeRefri, 8.00,CreateCode.gerarCodigoUnico())
                     listaBebida.add(quantidadeAdicionada)
                 }else{
                     println("Opção inválida, Digite novamente")
@@ -26,7 +26,7 @@ open class InserirDadosParaEscolherOProduto() : ListOfClasses(){
                 var quantidadeSuco = readln().toInt()
 
                 if (quantidadeSuco != null && quantidadeSuco != 0) {
-                val quantidadeAdicionada = Product.Drink("Suco", quantidadeSuco, 6.00,GerarCódigo.gerarCodigoUnico())
+                val quantidadeAdicionada = Product.Drink("Suco", quantidadeSuco, 6.00,CreateCode.gerarCodigoUnico())
                 listaBebida.add(quantidadeAdicionada)
                 }else{
                     println("Opção inválida, Digite novamente")
@@ -48,7 +48,7 @@ open class InserirDadosParaEscolherOProduto() : ListOfClasses(){
 
                 if (quantidadeLanche != null && quantidadeLanche != 0){
 
-                    val quantidadeAdicionada = Product.Food("X-BURGUES",10.0,quantidadeLanche,GerarCódigo.gerarCodigoUnico())
+                    val quantidadeAdicionada = Product.Food("X-BURGUES",10.0,quantidadeLanche,CreateCode.gerarCodigoUnico())
                     listaLanche.add(quantidadeAdicionada)
                 } else{
                     println("Opção inválida, Digite novamente")
@@ -60,7 +60,7 @@ open class InserirDadosParaEscolherOProduto() : ListOfClasses(){
                 var quantidadeDoOutroLanche = readln().toInt()
 
                 if (quantidadeDoOutroLanche != null && quantidadeDoOutroLanche != 0) {
-                    val quantidadeAdicionada = Product.Food("X-SALADA", 12.0, quantidadeDoOutroLanche,GerarCódigo.gerarCodigoUnico())
+                    val quantidadeAdicionada = Product.Food("X-SALADA", 12.0, quantidadeDoOutroLanche,CreateCode.gerarCodigoUnico())
                     listaLanche.add(quantidadeAdicionada)
                 }else{
                     println("Opção inválida, Digite novamente")

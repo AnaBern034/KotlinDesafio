@@ -1,7 +1,7 @@
 package CONTROLLER
 
-import View.InputBebida
-import View.InputLanche
+import View.InputBebidaViewer.InputBebida
+import View.InputFoodViewer.InputLanche
 
 class ShowAllProduct {
     fun mostrarBebida( input : InputBebida){
