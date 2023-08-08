@@ -1,6 +1,6 @@
 package LANCHES
 
-import MODEL.Model
+import MODEL.Product
 import View.InputLanche
 import org.testng.AssertJUnit.assertEquals
 import org.testng.annotations.Test
@@ -13,7 +13,7 @@ class InputLancheTest {
         val inputStream = "1\n1000\n2\n".byteInputStream()
         System.setIn(inputStream)
 
-        val lanche1 = Model.lanche("X-BURGUER", 10.0, 2, 1000)
+        val lanche1 = Product.Food("X-BURGUER", 10.0, 2, 1000)
         val inputLanche = InputLanche()
         inputLanche.listaLanche.add(lanche1)
 
@@ -30,7 +30,7 @@ class InputLancheTest {
         val inputStream = "2\n1000\n2\n".byteInputStream()
         System.setIn(inputStream)
 
-        val lanche1 = Model.lanche("X-BURGUER", 10.0, 5, 1000)
+        val lanche1 = Product.Food("X-BURGUER", 10.0, 5, 1000)
         val inputLanche = InputLanche()
         inputLanche.listaLanche.add(lanche1)
 

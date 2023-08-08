@@ -1,7 +1,8 @@
 package View
 
-import CONTROLLER.Lanche
-class InputLanche : Lanche(){
+import MODEL.ListOfClasses
+
+class InputLanche : ListOfClasses(){
     // adicionar laço OK
 
     fun escolherLanche() {

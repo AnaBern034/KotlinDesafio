@@ -1,33 +1,11 @@
 package CONTROLLER
 
-import MODEL.Model
+import MODEL.CleanCart
+import MODEL.Product
 import View.InputBebida
 import View.InputLanche
-import java.util.*
 
-open class Carrinho : Model() {
-    var valorTotal = 0.0
-
-    fun calcularTotal(inputBebida: InputBebida,inputLanche: InputLanche){
-        var valorBebida = 0.0
-        var valorLanche = 0.0
-
-        for (i in inputBebida.listaBebida){
-            valorBebida += i.preco!! * i.quantidade!!
-        }
-        for(i in inputLanche.listaLanche){
-            valorLanche += i.preco * i.quantidade!!
-        }
-        if (inputLanche.listaLanche.isNotEmpty() || inputBebida.listaBebida.isNotEmpty()){
-        println("============================")
-        println("Valor bebida : $valorBebida")
-        println("Valor lanche : $valorLanche")
-        valorTotal = valorBebida + valorLanche
-        println("==========================")
-        println("VALOR TOTAL: $valorTotal")
-        }
-    }
-
+open class FinalingRequestProduct : Product() {
     fun finalizarPedidos(inputBebida: InputBebida, inputLanche: InputLanche) {
         if (inputLanche.listaLanche.isNotEmpty() || inputBebida.listaBebida.isNotEmpty()) {
             println("Formas de pagamento:")
@@ -39,7 +17,7 @@ open class Carrinho : Model() {
 
             when (formaPagamento) {
                 1, 2, 3 -> {
-                    limparCarinho(inputBebida,inputLanche)
+                    CleanCart.limparCarinho(inputBebida,inputLanche)
                     println("Compra finalizada com sucesso! Boa refeição!")
                 }
 
@@ -50,7 +28,7 @@ open class Carrinho : Model() {
                     if (valorPago >= valorTotal) {
                         val troco = valorPago - valorTotal
                         println("Compra finalizada com sucesso! Troco: R$ $troco")
-                        limparCarinho(inputBebida,inputLanche)
+                       CleanCart.limparCarinho(inputBebida,inputLanche)
                     } else {
                         println("Valor insuficiente. Pedido não finalizado.")
                     }
@@ -68,12 +46,4 @@ open class Carrinho : Model() {
 
         }
     }
-    fun limparCarinho(inputBebida: InputBebida,inputLanche: InputLanche){
-        println("LIMPANDO DADOS....")
-        println()
-        inputBebida.listaBebida.clear()
-        inputLanche.listaLanche.clear()
-        valorTotal = 0.0
-    }
-
 }

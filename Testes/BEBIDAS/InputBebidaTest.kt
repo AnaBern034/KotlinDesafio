@@ -1,6 +1,6 @@
 package BEBIDAS
 
-import MODEL.Model
+import MODEL.Product
 import View.InputBebida
 import org.testng.AssertJUnit.assertEquals
 import org.testng.annotations.Test
@@ -13,7 +13,7 @@ class InputBebidaTest {
         val inputStream = "1\n1000\n2\n".byteInputStream()
         System.setIn(inputStream)
 
-        val bebida1 = Model.bebida("Refrigerante", 10, 8.0, 1000)
+        val bebida1 = Product.Drink("Refrigerante", 10, 8.0, 1000)
         val inputBebida = InputBebida()
         inputBebida.listaBebida.add(bebida1)
 
@@ -29,7 +29,7 @@ class InputBebidaTest {
         val inputStream = "2\n1000\n2\n".byteInputStream()
         System.setIn(inputStream)
 
-        val bebida1 = Model.bebida("Refrigerante", 10, 8.0, 1000)
+        val bebida1 = Product.Drink("Refrigerante", 10, 8.0, 1000)
         val inputBebida = InputBebida()
         inputBebida.listaBebida.add(bebida1)
 

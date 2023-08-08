@@ -1,9 +1,8 @@
 package View
 
-import CONTROLLER.Bebida
-import MODEL.Model
+import CONTROLLER.InserirDadosParaEscolherOProduto
 
-open class InputBebida() : Bebida() {
+open class InputBebida() : InserirDadosParaEscolherOProduto() {
     // adicionar código OK
     // fzer o laço OK
 

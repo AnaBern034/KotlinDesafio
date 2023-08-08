@@ -1,5 +1,5 @@
-import CONTROLLER.Bebida
-import CONTROLLER.Carrinho
+import CONTROLLER.InserirDadosParaEscolherOProduto
+import CONTROLLER.FinalingRequestProduct
 import CONTROLLER.Lanche
 import View.InputBebida
 import View.InputLanche
@@ -9,8 +9,9 @@ import kotlin.system.exitProcess
 fun main() {
     val bebida = InputBebida()
     val lanche = InputLanche()
-    val final = Carrinho()
-    val bebidaController = Bebida()
+    val final = FinalingRequestProduct()
+
+    val bebidaController = InserirDadosParaEscolherOProduto()
     val lancheController = Lanche()
     println("SEJA BEM VINDO AO ATENDIMENTO LANCHONETE")
 

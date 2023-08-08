@@ -1,6 +1,6 @@
 package BEBIDAS
 
-import MODEL.Model
+import MODEL.Product
 import View.InputBebida
 import org.testng.AssertJUnit.assertEquals
 import org.testng.annotations.Test
@@ -11,7 +11,7 @@ class TestarBebidaController {
 
     @Test
     fun removerQuantidade(){
-        val bebida1 = Model.bebida("Refrigerante",5,10.0,codigo)
+        val bebida1 = Product.Drink("Refrigerante",5,10.0,codigo)
         entradaUsuario.listaBebida.add(bebida1)
 
         entradaUsuario.removerQuantidade(entradaUsuario,codigo,3)
@@ -19,7 +19,7 @@ class TestarBebidaController {
     }
     @Test
     fun adicionarQuantidade(){
-        val bebida1 = Model.bebida("Refrigerante",10,10.0,codigo)
+        val bebida1 = Product.Drink("Refrigerante",10,10.0,codigo)
         entradaUsuario.listaBebida.add(bebida1)
 
         entradaUsuario.adicionaPedido(entradaUsuario,codigo,2)
